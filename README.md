@@ -30,12 +30,38 @@ TrueSpend uses the latest Android architecture guidelines:
 * **Data Layer:** `TransactionDao` hooks deeply into the `AppDatabase` triggering live emission updates on row manipulation (Insert, Update, Delete).
 * **Parser:** A purely decoupled `SmartParser.kt` implementation that safely strips bad characters and maps raw string streams into type-safe Kotlin Data Classes.
 
-## Installation
+## Environment & Setup Requirements
 
-1. Clone the repository: `git clone https://github.com/Pratyush-Srivastava/TrueSpend.git`
+Before you can build or contribute to this repository, ensure your local environment meets the following tooling requirements:
+
+1. **Java Development Kit (JDK)**  
+   - **Version:** JDK 17  
+   - **Note:** Required by Gradle 8.2 and the modern Kotlin compiler. Ensure your `JAVA_HOME` environment variable points to a valid JDK 17 installation.
+
+2. **Android Studio**  
+   - **Recommended Version:** Android Studio Iguana (2023.2.1) or newer.
+   - **SDK Platforms:** Android API 34 (UpsideDownCake)
+   - **Build Tools:** `34.0.0` or higher
+
+3. **Gradle Build Tool**  
+   - **Version:** 8.2  
+   - *Note: You do not need to install Gradle manually. The included `gradlew` (Gradle Wrapper) will automatically download and utilize version `8.2`.*
+
+4. **Kotlin**  
+   - **Version:** `1.9.0` (Configured automatically via the `build.gradle.kts` plugin)
+   - **KSP (Kotlin Symbol Processing):** `1.9.0-1.0.13` (Used by Room Database for fast compile-time schema generation)
+
+## Installation & Running Locally
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Pratyush-Srivastava/TrueSpend.git
+   cd TrueSpend
+   ```
 2. Open the project folder in **Android Studio**.
-3. Allow Gradle to sync.
-4. Press the green **▶ Run** button to deploy it directly to a physical device or emulator.
+3. Allow Gradle to automatically sync the dependencies (Room, Compose, POI).
+4. Connect an Android device via USB (ensure *USB Debugging* is enabled in Developer Options) or start a local Android Emulator.
+5. Press the green **▶ Run** button in Android Studio to deploy it directly.
 
 Alternatively, compile the `.apk` via the Gradle CLI:
 ```bash
